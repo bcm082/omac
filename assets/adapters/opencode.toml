@@ -1,0 +1,18 @@
+name = "opencode"
+description = "opencode CLI and OpenCode.app custom theme"
+hint = "Restart opencode to load the theme."
+
+[detect]
+bins = ["opencode"]
+apps = ["OpenCode.app"]
+
+[[steps]]
+kind = "write"
+template = "opencode.json.tpl"
+target = "~/.config/opencode/themes/omarchy.json"
+
+[[steps]]
+kind = "set"
+file = "~/.config/opencode/opencode.json"
+key = "theme"
+value = "omarchy"

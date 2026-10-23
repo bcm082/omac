@@ -1,0 +1,24 @@
+name = "kitty"
+description = "kitty terminal colors"
+
+[detect]
+apps = ["kitty.app"]
+bins = ["kitty"]
+
+[[steps]]
+kind = "write"
+template = "omarchy:kitty.conf.tpl"
+theme_file = "kitty.conf"
+target = "~/.config/kitty/omarchy-theme.conf"
+
+[[steps]]
+kind = "block"
+file = "~/.config/kitty/kitty.conf"
+id = "theme"
+content = "include omarchy-theme.conf"
+
+[[steps]]
+kind = "cmd"
+run = "pkill -USR1 -x kitty"
+ignore_error = true
+reload = true

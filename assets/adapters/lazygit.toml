@@ -1,0 +1,23 @@
+name = "lazygit"
+description = "lazygit border, selection and highlight colors"
+
+[detect]
+bins = ["lazygit"]
+
+[[steps]]
+kind = "set"
+files = ["~/Library/Application Support/lazygit/config.yml", "~/.config/lazygit/config.yml"]
+
+[steps.values]
+"gui.theme.activeBorderColor" = ["{{ accent }}", "bold"]
+"gui.theme.inactiveBorderColor" = ["{{ muted }}"]
+"gui.theme.searchingActiveBorderColor" = ["{{ yellow }}", "bold"]
+"gui.theme.optionsTextColor" = ["{{ blue }}"]
+"gui.theme.selectedLineBgColor" = ["{{ selection }}"]
+"gui.theme.inactiveViewSelectedLineBgColor" = ["{{ lighter_background }}"]
+"gui.theme.cherryPickedCommitFgColor" = ["{{ blue }}"]
+"gui.theme.cherryPickedCommitBgColor" = ["{{ cyan }}"]
+"gui.theme.markedBaseCommitFgColor" = ["{{ blue }}"]
+"gui.theme.markedBaseCommitBgColor" = ["{{ yellow }}"]
+"gui.theme.unstagedChangesColor" = ["{{ red }}"]
+"gui.theme.defaultFgColor" = ["{{ foreground }}"]

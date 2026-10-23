@@ -1,0 +1,18 @@
+name = "zsh"
+description = "zsh-syntax-highlighting and zsh-autosuggestions colors"
+hint = "New shells pick it up; run `exec zsh` in open ones."
+
+[detect]
+paths = ["/opt/homebrew/share/zsh-syntax-highlighting", "/opt/homebrew/share/zsh-autosuggestions", "/usr/local/share/zsh-syntax-highlighting"]
+
+[[steps]]
+kind = "write"
+template = "zsh-highlight.zsh.tpl"
+target = "~/.config/omac/shell/zsh-highlight.zsh"
+
+# Shared with the fzf adapter: sources every file in ~/.config/omac/shell.
+[[steps]]
+kind = "block"
+file = "~/.zshrc"
+id = "shell"
+content = "for f in ~/.config/omac/shell/*.zsh(N); do source \"$f\"; done"

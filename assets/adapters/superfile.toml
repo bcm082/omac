@@ -1,0 +1,23 @@
+name = "superfile"
+description = "superfile (spf) file manager theme"
+hint = "Restart spf to see it."
+
+[detect]
+bins = ["spf", "superfile"]
+paths = ["~/Library/Application Support/superfile"]
+
+# superfile reads config.toml and theme/<name>.toml from the same folder:
+# ~/Library/Application Support/superfile on macOS, ~/.config/superfile
+# when XDG_CONFIG_HOME is set.
+[[steps]]
+kind = "write"
+template = "superfile.toml.tpl"
+targets_cmd = '''for d in "$HOME/Library/Application Support/superfile" "${XDG_CONFIG_HOME:-$HOME/.config}/superfile"; do [ -f "$d/config.toml" ] && echo "$d"; done; true'''
+target = "{{ target_dir }}/theme/omarchy.toml"
+
+[[steps]]
+kind = "set"
+targets_cmd = '''for d in "$HOME/Library/Application Support/superfile" "${XDG_CONFIG_HOME:-$HOME/.config}/superfile"; do [ -f "$d/config.toml" ] && echo "$d"; done; true'''
+file = "{{ target_dir }}/config.toml"
+key = "theme"
+value = "omarchy"

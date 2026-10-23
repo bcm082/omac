@@ -1,0 +1,17 @@
+name = "glow"
+description = "glow markdown style (glamour JSON)"
+support = "partial"
+
+[detect]
+bins = ["glow"]
+
+[[steps]]
+kind = "write"
+template = "glamour.json.tpl"
+target = "{{ generated }}/glow.json"
+
+[[steps]]
+kind = "set"
+files = ["~/Library/Preferences/glow/glow.yml", "~/.config/glow/glow.yml"]
+key = "style"
+value = "{{ generated }}/glow.json"

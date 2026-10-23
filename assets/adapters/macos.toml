@@ -1,0 +1,11 @@
+name = "macos"
+description = "macOS light/dark appearance, following the theme's mode"
+support = "partial"
+order = 2
+hint = "Only light/dark can change; macOS has no API for an arbitrary accent color."
+
+[detect]
+always = true
+
+[[steps]]
+kind = "appearance"

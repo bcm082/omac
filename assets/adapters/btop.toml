@@ -1,0 +1,19 @@
+name = "btop"
+description = "btop color theme"
+hint = "Restart btop to see it."
+
+[detect]
+bins = ["btop"]
+
+[[steps]]
+kind = "write"
+template = "omarchy:btop.theme.tpl"
+theme_file = "btop.theme"
+target = "~/.config/btop/themes/omarchy.theme"
+
+[[steps]]
+kind = "set"
+file = "~/.config/btop/btop.conf"
+format = "toml"
+key = "color_theme"
+value = "omarchy"

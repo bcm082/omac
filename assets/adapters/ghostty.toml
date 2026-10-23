@@ -1,0 +1,27 @@
+name = "ghostty"
+description = "Ghostty terminal colors; every ANSI-colored TUI follows it"
+order = 10
+
+[detect]
+apps = ["Ghostty.app"]
+bins = ["ghostty"]
+
+[[steps]]
+kind = "write"
+template = "omarchy:ghostty.conf.tpl"
+theme_file = "ghostty.conf"
+target = "~/.config/ghostty/themes/omarchy"
+
+[[steps]]
+kind = "set"
+file = "~/.config/ghostty/config"
+format = "kv"
+key = "theme"
+value = "omarchy"
+
+# Ghostty reloads its config on SIGUSR2.
+[[steps]]
+kind = "cmd"
+run = "pkill -USR2 -x ghostty"
+ignore_error = true
+reload = true

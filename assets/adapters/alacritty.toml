@@ -1,0 +1,18 @@
+name = "alacritty"
+description = "Alacritty terminal colors (reloads live)"
+
+[detect]
+apps = ["Alacritty.app"]
+bins = ["alacritty"]
+
+[[steps]]
+kind = "write"
+template = "omarchy:alacritty.toml.tpl"
+theme_file = "alacritty.toml"
+target = "~/.config/alacritty/omarchy-theme.toml"
+
+[[steps]]
+kind = "set"
+file = "~/.config/alacritty/alacritty.toml"
+key = "general.import"
+value = ["~/.config/alacritty/omarchy-theme.toml"]

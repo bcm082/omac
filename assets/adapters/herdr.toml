@@ -1,0 +1,36 @@
+name = "herdr"
+description = "herdr UI colors via [theme.custom]"
+
+[detect]
+bins = ["herdr"]
+
+[[steps]]
+kind = "set"
+file = "~/.config/herdr/config.toml"
+
+[steps.values]
+"theme.custom.accent" = "{{ accent }}"
+"theme.custom.panel_bg" = "{{ background }}"
+"theme.custom.sidebar_bg" = "{{ dark_background }}"
+"theme.custom.active_row_bg" = "{{ lighter_background }}"
+"theme.custom.selection_bg" = "{{ selection }}"
+"theme.custom.surface0" = "{{ lighter_background }}"
+"theme.custom.surface1" = "{{ mix background foreground 20% }}"
+"theme.custom.surface_dim" = "{{ dark_background }}"
+"theme.custom.overlay0" = "{{ muted }}"
+"theme.custom.overlay1" = "{{ dark_foreground }}"
+"theme.custom.text" = "{{ foreground }}"
+"theme.custom.subtext0" = "{{ dark_foreground }}"
+"theme.custom.mauve" = "{{ magenta }}"
+"theme.custom.green" = "{{ green }}"
+"theme.custom.yellow" = "{{ yellow }}"
+"theme.custom.red" = "{{ red }}"
+"theme.custom.blue" = "{{ blue }}"
+"theme.custom.teal" = "{{ cyan }}"
+"theme.custom.peach" = "{{ orange }}"
+
+[[steps]]
+kind = "cmd"
+run = "herdr server reload-config"
+ignore_error = true
+reload = true

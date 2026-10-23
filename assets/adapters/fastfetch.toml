@@ -1,0 +1,11 @@
+name = "fastfetch"
+description = "fastfetch key and title colors"
+support = "partial"
+
+[detect]
+bins = ["fastfetch"]
+
+[[steps]]
+kind = "set"
+file = "~/.config/fastfetch/config.jsonc"
+values = { "display.color.keys" = "{{ accent_sgr }}", "display.color.title" = "{{ accent_sgr }}", "display.color.separator" = "{{ muted_sgr }}" }

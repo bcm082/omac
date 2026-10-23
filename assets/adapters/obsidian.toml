@@ -1,0 +1,26 @@
+name = "obsidian"
+description = "Obsidian theme written into every vault"
+support = "partial"
+hint = "Pick Omarchy under Settings > Appearance > Themes once per vault."
+
+[detect]
+apps = ["Obsidian.app"]
+
+[[steps]]
+kind = "write"
+template = "omarchy:obsidian.css.tpl"
+targets_cmd = "jq -r '.vaults[]?.path' \"$HOME/Library/Application Support/obsidian/obsidian.json\" 2>/dev/null"
+target = "{{ target_dir }}/.obsidian/themes/Omarchy/theme.css"
+
+[[steps]]
+kind = "write"
+targets_cmd = "jq -r '.vaults[]?.path' \"$HOME/Library/Application Support/obsidian/obsidian.json\" 2>/dev/null"
+target = "{{ target_dir }}/.obsidian/themes/Omarchy/manifest.json"
+content = '''
+{
+  "name": "Omarchy",
+  "version": "1.0.0",
+  "minAppVersion": "0.16.0",
+  "author": "omac"
+}
+'''

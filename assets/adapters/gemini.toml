@@ -1,0 +1,37 @@
+name = "gemini"
+description = "Gemini CLI custom theme"
+support = "partial"
+hint = "Restart gemini to load the theme."
+
+[detect]
+bins = ["gemini"]
+paths = ["~/.gemini/settings.json"]
+
+[[steps]]
+kind = "set"
+file = "~/.gemini/settings.json"
+key = "ui.customThemes.Omarchy"
+
+[steps.value]
+name = "Omarchy"
+type = "custom"
+Background = "{{ background }}"
+Foreground = "{{ foreground }}"
+LightBlue = "{{ bright_blue }}"
+AccentBlue = "{{ blue }}"
+AccentPurple = "{{ magenta }}"
+AccentCyan = "{{ cyan }}"
+AccentGreen = "{{ green }}"
+AccentYellow = "{{ yellow }}"
+AccentRed = "{{ red }}"
+Comment = "{{ dark_foreground }}"
+Gray = "{{ muted }}"
+DiffAdded = "{{ mix background green 25% }}"
+DiffRemoved = "{{ mix background red 25% }}"
+GradientColors = ["{{ accent }}", "{{ magenta }}", "{{ cyan }}"]
+
+[[steps]]
+kind = "set"
+file = "~/.gemini/settings.json"
+key = "ui.theme"
+value = "Omarchy"

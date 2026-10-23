@@ -1,0 +1,29 @@
+name = "starship"
+description = "Starship prompt palette (style your segments with the palette names below)"
+hint = "Open a new prompt to see it."
+
+[detect]
+bins = ["starship"]
+
+[[steps]]
+kind = "set"
+file = "~/.config/starship.toml"
+key = "palette"
+value = "omarchy"
+
+# Use these names in starship.toml styles, e.g. style = "bg:seg_dir fg:seg_text".
+[[steps]]
+kind = "set"
+file = "~/.config/starship.toml"
+
+[steps.values]
+"palettes.omarchy.accent" = "{{ accent }}"
+"palettes.omarchy.seg_os" = "{{ lighter_background }}"
+"palettes.omarchy.seg_os_text" = "{{ foreground }}"
+"palettes.omarchy.seg_dir" = "{{ orange }}"
+"palettes.omarchy.seg_git" = "{{ green }}"
+"palettes.omarchy.seg_lang" = "{{ blue }}"
+"palettes.omarchy.seg_text" = "{{ background }}"
+"palettes.omarchy.ok" = "{{ green }}"
+"palettes.omarchy.err" = "{{ red }}"
+"palettes.omarchy.vi" = "{{ orange }}"

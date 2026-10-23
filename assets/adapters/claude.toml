@@ -1,0 +1,17 @@
+name = "claude"
+description = "Claude Code custom theme (hot-reloads in running sessions)"
+
+[detect]
+bins = ["claude"]
+paths = ["~/.claude"]
+
+[[steps]]
+kind = "write"
+template = "omarchy:claude.json.tpl"
+target = "~/.claude/themes/omarchy.json"
+
+[[steps]]
+kind = "set"
+file = "~/.claude/settings.json"
+key = "theme"
+value = "custom:omarchy"

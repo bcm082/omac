@@ -1,0 +1,13 @@
+name = "neovim"
+description = "LazyVim colorscheme plugin spec (the theme's neovim.lua, else aether.nvim with the palette)"
+hint = "Restart nvim; lazy.nvim installs the colorscheme plugin on first launch."
+
+[detect]
+bins = ["nvim"]
+paths = ["~/.config/nvim"]
+
+[[steps]]
+kind = "write"
+theme_file = "neovim.lua"
+template = "omarchy:neovim.lua.tpl"
+target = "~/.config/nvim/lua/plugins/colorscheme.lua"

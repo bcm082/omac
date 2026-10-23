@@ -1,0 +1,18 @@
+name = "wallpaper"
+description = "Desktop picture from the theme's backgrounds (w/W in the TUI picks which)"
+order = 1
+
+[detect]
+always = true
+
+[[steps]]
+kind = "wallpaper"
+
+# The wallpaper step also writes the picture into every Space's entry in
+# ~/Library/Application Support/com.apple.wallpaper/Store/Index.plist;
+# WallpaperAgent only reads that store when it starts.
+[[steps]]
+kind = "cmd"
+run = "killall WallpaperAgent"
+ignore_error = true
+reload = true

@@ -1,0 +1,18 @@
+name = "cliamp"
+description = "cliamp music player custom theme"
+support = "partial"
+hint = "Restart cliamp (or press t and pick omac)."
+
+[detect]
+bins = ["cliamp"]
+
+[[steps]]
+kind = "write"
+template = "cliamp.toml.tpl"
+target = "~/.config/cliamp/themes/omac.toml"
+
+[[steps]]
+kind = "set"
+file = "~/.config/cliamp/config.toml"
+key = "theme"
+value = "omac"

@@ -1,0 +1,18 @@
+name = "codex"
+description = "Codex syntax-highlighting theme (the rest of its UI follows the terminal palette)"
+support = "partial"
+hint = "Restart codex to load the theme."
+
+[detect]
+bins = ["codex"]
+
+[[steps]]
+kind = "write"
+template = "tmtheme.xml.tpl"
+target = "~/.codex/themes/omarchy.tmTheme"
+
+[[steps]]
+kind = "set"
+file = "~/.codex/config.toml"
+key = "tui.theme"
+value = "omarchy"

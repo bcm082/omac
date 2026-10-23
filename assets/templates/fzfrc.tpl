@@ -1,0 +1,4 @@
+--color=fg:{{ foreground }},bg:-1,hl:{{ accent }}
+--color=fg+:{{ bright_foreground }},bg+:{{ selection }},hl+:{{ accent }}
+--color=info:{{ dark_foreground }},prompt:{{ accent }},pointer:{{ accent }},marker:{{ green }},spinner:{{ cyan }},header:{{ blue }}
+--color=border:{{ muted }},label:{{ foreground }},query:{{ foreground }},gutter:-1

@@ -1,0 +1,16 @@
+name = "zed"
+description = "Zed editor theme (reloads live)"
+
+[detect]
+apps = ["Zed.app"]
+bins = ["zed"]
+
+[[steps]]
+kind = "write"
+template = "zed.json.tpl"
+target = "~/.config/zed/themes/omarchy.json"
+
+[[steps]]
+kind = "set"
+file = "~/.config/zed/settings.json"
+values = { "theme.mode" = "{{ mode }}", "theme.dark" = "Omarchy", "theme.light" = "Omarchy" }

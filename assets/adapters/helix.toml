@@ -1,0 +1,17 @@
+name = "helix"
+description = "Helix editor theme"
+hint = "Run :config-reload in helix."
+
+[detect]
+bins = ["hx", "helix"]
+
+[[steps]]
+kind = "write"
+template = "omarchy:helix.toml.tpl"
+target = "~/.config/helix/themes/omarchy.toml"
+
+[[steps]]
+kind = "set"
+file = "~/.config/helix/config.toml"
+key = "theme"
+value = "omarchy"

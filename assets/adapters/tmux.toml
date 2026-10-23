@@ -1,0 +1,22 @@
+name = "tmux"
+description = "tmux status bar, borders and messages in the theme's accent"
+
+[detect]
+bins = ["tmux"]
+
+[[steps]]
+kind = "write"
+template = "tmux.conf.tpl"
+target = "{{ generated }}/tmux.conf"
+
+[[steps]]
+kind = "block"
+file = "~/.tmux.conf"
+id = "theme"
+content = "source-file -q ~/.config/omac/generated/tmux.conf"
+
+[[steps]]
+kind = "cmd"
+run = "tmux info >/dev/null 2>&1 && tmux source-file ~/.config/omac/generated/tmux.conf"
+ignore_error = true
+reload = true

@@ -1,0 +1,21 @@
+name = "yazi"
+description = "yazi flavor (UI colors plus a tmTheme for code previews)"
+hint = "Restart yazi to see it."
+
+[detect]
+bins = ["yazi"]
+
+[[steps]]
+kind = "write"
+template = "yazi-flavor.toml.tpl"
+target = "~/.config/yazi/flavors/omarchy.yazi/flavor.toml"
+
+[[steps]]
+kind = "write"
+template = "tmtheme.xml.tpl"
+target = "~/.config/yazi/flavors/omarchy.yazi/tmtheme.xml"
+
+[[steps]]
+kind = "set"
+file = "~/.config/yazi/theme.toml"
+values = { "flavor.dark" = "omarchy", "flavor.light" = "omarchy" }
